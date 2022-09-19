@@ -1,6 +1,15 @@
 name: Build FFmpeg
 
 on:
+  push:
+    paths-ignore: ['**.md']
+    branches:
+      - master
+      - 'release/**'
+    tags: ['*']
+  pull_request:
+    paths-ignore: ['**.md']
+    branches: [master]
   repository_dispatch:
     types: [build]
   workflow_dispatch:
